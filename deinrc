@@ -1,0 +1,124 @@
+if &compatible
+  set nocompatible
+endif
+
+set runtimepath+=/Users/kiriake/.cache/dein/repos/github.com/Shougo/dein.vim
+
+call dein#begin('/Users/kiriake/.cache/dein')
+
+  call dein#add('ConradIrwin/vim-bracketed-paste')
+  call dein#add('glidenote/memolist.vim')
+  call dein#add('ctrlpvim/ctrlp.vim')
+"   call dein#add('hashivim/vim-terraform')
+  call dein#add('mattn/gist-vim')
+  call dein#add('mattn/webapi-vim')
+  " call dein#add('nathanaelkane/vim-indent-guides')
+  call dein#add('scrooloose/nerdtree')
+  call dein#add('jistr/vim-nerdtree-tabs')
+  call dein#add('airblade/vim-gitgutter')
+  call dein#add('Shougo/dein.vim')
+  call dein#add('stephpy/vim-yaml')
+  call dein#add('tomasr/molokai')
+  call dein#add('tyru/open-browser.vim')
+  call dein#add('osyo-manga/vim-over')
+  call dein#add('thinca/vim-quickrun')
+  call dein#add('vim-airline/vim-airline')
+  call dein#add('vim-airline/vim-airline-themes')
+  call dein#add('tomtom/tcomment_vim')
+  call dein#add('vim-jp/vimdoc-ja')
+  call dein#add('tpope/vim-markdown')
+  call dein#add('previm/previm')
+  call dein#add('dense-analysis/ale')
+  " call dein#add('vim/killersheep')
+  call dein#add('vim-airline/vim-airline-themes')
+  call dein#add('ryanoasis/vim-devicons')
+  call dein#add('itchyny/calendar.vim')
+  call dein#add('skanehira/preview-markdown.vim')
+
+
+call dein#end()
+
+filetype plugin indent on
+syntax enable
+
+if dein#check_install()
+  call dein#install()
+endif
+
+" setting for NERDTree
+nmap <Space>t :NERDTree<CR>
+
+" setting for vim-indent-guides
+let g:indent_guides_enable_on_vim_startup = 1
+
+" setting for ctrlp
+nmap <Space>f :CtrlP<CR>
+
+" setting for browser.vim
+nmap <Space>b <Plug>(openbrowser-smart-search)
+vmap <Space>b <Plug>(openbrowser-smart-search)
+
+" setting for molokai
+"colorscheme molokai
+
+" setting for vim-terraform
+" let g:terraform_fmt_on_save = 1
+
+" setting for gist-vim
+nmap <Space>g :Gist 
+
+" setting for memolist
+nmap <Space>mn :MemoNew<CR>
+nmap <Space>ml :MemoList<CR>
+nmap <Space>mg :MemoGrep<CR>
+let g:memolist_path = "~/git/kiriake/kiriake.github.io/_posts/"
+let g:memolist_template_dir_path = "~/git/kiriake/kiriake.github.io/template/"
+
+" setting for vim-over
+nnoremap <silent> <Space>o :OverCommandLine<CR>%s//g<Left><Left>
+vnoremap <silent> <Space>o :OverCommandLine<CR>s//g<Left><Left>
+nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
+
+" setting for vim-quickrun
+nmap <Space>r :QuickRun<CR>
+
+" setting for vimdoc-ja
+set helplang=ja,en
+
+"setting for PreVim
+nmap <Space>p :PrevimOpen<CR>
+
+"setting for ale
+let g:ale_lint_on_text_changed = 0
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+let g:airline#extensions#ale#open_lnum_symbol = '('
+let g:airline#extensions#ale#close_lnum_symbol = ')'
+let g:ale_echo_msg_format = '[%linter%]%code: %%s'
+highlight link ALEErrorSign Tag
+highlight link ALEWarningSign StorageClass
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+"setting for vim-airline
+let g:airline_theme = 'wombat'
+set laststatus=2
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#wordcount#enabled = 0
+let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z']]
+let g:airline_section_c = '%t'
+let g:airline_section_x = '%{&filetype}'
+let g:airline_section_z = '%3l:%2v %{airline#extensions#ale#get_warning()} %{airline#extensions#ale#get_error()}'
+let g:airline#extensions#ale#error_symbol = ' '
+let g:airline#extensions#ale#warning_symbol = ' '
+let g:airline#extensions#default#section_truncate_width = {}
+let g:airline#extensions#whitespace#enabled = 1
+
+"setting for calendar.vim
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+
+"setting for PreviewMarkdown.vim
+let g:preview_markdown_vertical = 1
+nmap <Space>md :PreviewMarkdown<CR>
