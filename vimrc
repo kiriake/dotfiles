@@ -15,12 +15,9 @@ set visualbell
 set showmatch
 set matchtime=1
 set laststatus=2
-set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\[%{usa_president_2020#status()}\]\ %P
 set wildmode=list:longest
 set display=lastline
 
-set list
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set expandtab
 set tabstop=2
 set shiftwidth=2
