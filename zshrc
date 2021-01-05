@@ -137,6 +137,7 @@ alias df="df -h"
 
 alias su="su -l"
 
+alias repos="cd $(ghq root)/$(ghq list | peco)"
 
 ## terminal configuration
 #
