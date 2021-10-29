@@ -1,2 +1,6 @@
+[user]
+  name = Koji Kiriake
+  email = kiriake@gmail.com
+
 [ghq]
-	root = ~/git
+  root = ~/git
