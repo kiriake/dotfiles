@@ -137,8 +137,6 @@ alias df="df -h"
 
 alias su="su -l"
 
-alias repos="cd $(ghq root)/$(ghq list | peco)"
-
 ## terminal configuration
 #
 case "${TERM}" in
@@ -189,3 +187,5 @@ esac
 ## load user .zshrc configuration file
 #
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh

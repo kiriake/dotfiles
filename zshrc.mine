@@ -1,0 +1,15 @@
+# peco
+alias repo="cd \$(ghq list -p | peco)"
+alias project="cd \$(find ~/Projects/* -maxdepth 0 | peco)"
+
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# direnv
+export EDITOR=vim
+eval "$(direnv hook zsh)"
+
+# terraform
+export TERRAFORM_COMPOSE='/Users/kiriake/Docker/terraform/docker-compose.yaml'
+alias terraform='docker-compose -f $TERRAFORM_COMPOSE run --rm terraform'
+

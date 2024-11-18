@@ -1,0 +1,36 @@
+# Homebrew
+export PATH=/opt/homebrew/bin:$PATH
+
+# direnv
+export EDITOR=vi
+eval "$(direnv hook zsh)"
+
+# ghq & peco
+alias repos='ghq list -p | peco'
+alias repo='cd $(repos)'
+alias projects='find ~/Projects -type d -depth 2 | peco'
+alias project='cd $(projects)'
+
+function get_target_repo() {
+  if [ $# -eq 1 ]; then
+    echo $1
+  else
+    echo $(repos)
+  fi
+}
+
+function vscode() {
+  open -a Visual\ Studio\ Code.app $(get_target_repo $1)
+}
+
+# Aseprite
+alias aseprite='/Applications/Aseprite/aseprite'
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# golang
+export GOPATH=$(go env GOPATH)
+export PATH=$PATH:$GOPATH/bin
+
+# rust
+source "$HOME/.cargo/env"
